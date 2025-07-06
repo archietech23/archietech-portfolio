@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kristopher Archie | Cybersecurity Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0f1117;
+      color: #ffffff;
+      display: flex;
+    }
+    aside {
+      width: 220px;
+      background-color: #181b24;
+      padding: 2rem 1rem;
+      height: 100vh;
+    }
+    aside nav a {
+      display: block;
+      color: #9ca3af;
+      margin: 1rem 0;
+      text-decoration: none;
+    }
+    aside nav a:hover {
+      color: #ffffff;
+    }
+    main {
+      padding: 2rem;
+      flex-grow: 1;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+    .subtitle {
+      color: #06b6d4;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    .tiles {
+      margin-top: 2rem;
+    }
+    .tile {
+      background-color: #1f2937;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .tile:hover {
+      background-color: #374151;
+    }
+    .tile h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .footer {
+      margin-top: 2rem;
+    }
+    .btn {
+      padding: 0.6rem 1rem;
+      margin-right: 1rem;
+      background-color: #1f2937;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #374151;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+  <main>
+    <h1>Kristopher Archie</h1>
+    <div class="subtitle">Cybersecurity Engineer | SIEM, PAM, IR Automation</div>
+    <p>Hi, I’m Kristopher — I secure digital systems and automate security operations.</p>
+
+    <div class="tiles">
+      <div class="tile" onclick="location.href='wazuh.html'">
+        <h3>My Experience with Wazuh SIEM</h3>
+      </div>
+      <div class="tile" onclick="location.href='pam.html'">
+        <h3>PAM Deployment Journey</h3>
+      </div>
+      <div class="tile" onclick="location.href='powershell.html'">
+        <h3>PowerShell Automation Demos</h3>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="https://www.linkedin.com/in/kcplaquia" target="_blank" class="btn">in</a>
+      <a href="resume.pdf" class="btn">Download Resume</a>
+    </div>
+  </main>
+</body>
+</html>
