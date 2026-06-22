@@ -4814,6 +4814,10 @@ input[type="button"].btn--primary:focus {
   color: #e5e7eb !important;
 }
 
+.s-resume {
+  background-color: #111111 !important;
+}
+
 /* Section headings */
 .s-resume h1,
 .s-resume h2,
