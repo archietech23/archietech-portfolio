@@ -22,3 +22,4 @@ This repository contains my personal portfolio website deployed via **GitHub Pag
 ### Option 2 — Python simple server
 ```bash
 python -m http.server 8080
+```
