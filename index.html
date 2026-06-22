@@ -5,7 +5,7 @@
     <title>Archie | Cybersecurity Engineer | Portfolio</title>
     <meta name="description" content="Archie Plaquia — Cybersecurity Engineer specializing in threat detection, SOAR automation, incident response, and security labs. Portfolio and projects.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="dark light">
+    <meta name="color-scheme" content="dark">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -15,11 +15,23 @@
     <script defer src="js/vendor/fontawesome/all.min.js"></script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="etc/favicon-16x16.png">
 
     <!-- Additional CSS for Projects, Certifications, Dark Mode -->
     <style>
-        body { background-color: #111; color: #fff; }
+        /* Dark-theme remap: the CEEVEE template colors text near-black for a
+           light background. Remapping these variables once fixes contrast for
+           headings and body copy across the whole page. */
+        :root {
+            --color-text       : #e2e8f0;  /* body copy */
+            --color-text-dark  : #ffffff;  /* headings */
+            --color-text-light : #94a3b8;  /* muted / meta text */
+            --color-bg         : #111111;
+            --color-placeholder: #94a3b8;
+            --color-border     : #334155;
+        }
+
+        body { background-color: #111; color: #e2e8f0; }
 
         .certifications-row, .projects-row {
             display: flex;
@@ -128,7 +140,7 @@
         <div class="column large-9 tab-12 s-about__content">
             <h3>About Me</h3>
             <p>
-            Cybersecurity Engineer with over 7 years of international experience across Canada, UAE, and the Philippines. 
+            Cybersecurity Engineer with over 8 years of international experience across Canada, UAE, and the Philippines. 
             Specializing in endpoint protection, threat detection, SOAR automation, and incident response. 
             CompTIA CySA+ and Security+ certified. Experienced in SOC optimization, system hardening (CIS Benchmarks), and MITRE ATT&CK-aligned security frameworks.
             </p>
@@ -299,7 +311,9 @@
             <strong>SOC Mini Lab (Detection & IR)</strong><br>
             Simulated SOC environment covering alert triage, log analysis, and incident response workflows.<br>
             <span class="project-tech">SIEM, MITRE ATT&CK, Windows Logs</span><br>
-          </li>          
+          </li>
+        </ul>
+      </div>
 
       <!-- Homelab & Personal Projects -->
       <div class="resume-block">
@@ -466,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <footer class="s-footer">
     <div class="row">
         <div class="column large-7 medium-6 w-1000-stack ss-copyright">
-            <span>© Copyright CeeVee 2021</span>
+            <span>© Copyright Kristopher Archie Plaquia 2026</span>
             <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
         </div>
     </div>
