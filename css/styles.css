@@ -4840,38 +4840,6 @@ input[type="button"].btn--primary:focus {
   color: #ffffff !important;
 }
 
-/* ============================= */
-/* Dark mode support (browser + OS) */
-/* ============================= */
-@media (prefers-color-scheme: dark) {
-
-  .s-resume,
-  .s-projects,
-  .s-contact {
-    background-color: #111;
-    color: #e5e7eb;
-  }
-
-  .s-resume h1,
-  .s-resume h2,
-  .s-resume h3,
-  .s-resume h4,
-  .s-projects h1,
-  .s-projects h2,
-  .s-projects h3,
-  .s-projects h4 {
-    color: #ffffff;
-  }
-
-  .s-resume strong,
-  .s-projects strong {
-    color: #f9fafb;
-  }
-
-  .s-resume .experience-note,
-  .s-resume .resume-block__header-meta,
-  .s-resume .resume-block__header-date {
-    color: #cbd5e1;
-  }
-
-}
+/* Site is intentionally dark-only (see color-scheme meta + variable remap in
+   index.html). The .s-resume/.s-projects/.s-contact rules above already force
+   the dark palette unconditionally, so no prefers-color-scheme block is needed. */
