@@ -1,358 +1,348 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Archie | Cybersecurity Engineer | Portfolio</title>
-    <meta name="description" content="Archie Plaquia — Cybersecurity Engineer specializing in threat detection, SOAR automation, incident response, and security labs. Portfolio and projects.">
+    <title>Kristopher Archie Plaquia — Cybersecurity Engineer</title>
+    <meta name="description" content="Kristopher Archie Plaquia — Cybersecurity Engineer in Vancouver, BC. Detection & response, SOC automation, IAM/PAM, and hands-on security write-ups.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; form-action 'none'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; form-action 'none'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/vendor.css">
-
-    <!-- FontAwesome -->
-    <script defer src="js/vendor/fontawesome/all.min.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="etc/favicon-16x16.png">
 
-    <!-- Additional CSS for Projects, Certifications, Dark Mode -->
+    <!-- Design-system stylesheet (Nocturne) -->
+    <link rel="stylesheet" href="css/nocturne.css">
+
     <style>
-        /* Dark-theme remap: the CEEVEE template colors text near-black for a
-           light background. Remapping these variables once fixes contrast for
-           headings and body copy across the whole page. */
-        :root {
-            --color-text       : #e2e8f0;  /* body copy */
-            --color-text-dark  : #ffffff;  /* headings */
-            --color-text-light : #94a3b8;  /* muted / meta text */
-            --color-bg         : #111111;
-            --color-placeholder: #94a3b8;
-            --color-border     : #334155;
-        }
+        html { scroll-behavior: smooth; }
+        a { text-decoration: none; }
+        ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
 
-        body { background-color: #111; color: #e2e8f0; }
-
-        .certifications-row, .projects-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+        /* Sticky top navigation (replaces the design's style-hover attributes) */
+        .site-nav {
+            position: sticky; top: 0; z-index: 50;
+            display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+            padding: 16px clamp(20px, 5vw, 64px);
+            background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-divider);
         }
-        .certifications-row a, .projects-row .resume-block {
-            flex: 1 1 150px;
+        .site-nav a { color: var(--color-neutral-300); font-size: 14px; }
+        .site-nav a.brand {
+            font-family: var(--font-heading); font-weight: 600; font-size: 17px;
+            color: var(--color-text); margin-right: auto;
         }
-        .cert-thumbnail {
-            width: 100px;
-            height: auto;
-            display: block;
-        }
-        .resume-block { background: #1a1a1a; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
-
-        @media (max-width: 768px) {
-            .certifications-row, .projects-row { flex-direction: column; align-items: flex-start; }
-        }
+        .site-nav a:not(.btn):hover { color: var(--color-accent); }
     </style>
 </head>
 
-<body id="top" class="ss-preload">
+<body>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
 
-<!-- preloader -->
-<div id="preloader">
-    <div id="loader"></div>
-</div>
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a href="#hero" class="brand">Kristopher Archie</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#writeups">Write-ups</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="btn btn-primary" style="font-size:13px">Contact</a>
+    </nav>
 
-<!--
-  Site header + navigation
-  - Uses StyleShout classes for layout + mobile menu toggle
-  - Nav links rely on smoothscroll JS (js/main.js)
--->
-<header class="s-header">
-    <div class="row s-header__nav-wrap">
-        <nav class="s-header__nav">
-            <ul>
-                <li class="current"><a class="smoothscroll" href="#hero">Home</a></li>
-                <li><a class="smoothscroll" href="#about">About</a></li>
-                <li><a class="smoothscroll" href="#resume">Experience</a></li>
-                <li><a class="smoothscroll" href="#projects">Projects</a></li>
-            </ul>
-        </nav>
-    </div>
-    <a class="s-header__menu-toggle" href="#0" title="Menu">
-        <span class="s-header__menu-icon"></span>
-    </a>
-</header>
-
-<!-- hero -->
-<section id="hero" class="s-hero target-section">
-    <div class="s-hero__bg rellax" data-rellax-speed="-7"></div>
-    <div class="row s-hero__content">
-        <div class="column">
-            <div class="s-hero__content-about">
-                <h1>I'm Kristopher Archie.</h1>
-                <h3>Vancouver-based <span>Cybersecurity Engineer</span>. Let's <a class="smoothscroll" href="#about">start scrolling</a> and learn more <a class="smoothscroll" href="#about">about me</a>.</h3>
-                <ul class="s-hero__content-social">
-                    <li>
-                        <a href="https://linkedin.com/in/kcplaquia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/archietech23" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <!-- HERO -->
+    <section id="hero" style="max-width:1200px;margin:0 auto;padding:clamp(56px,10vw,104px) clamp(20px,5vw,64px) 64px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+            <div style="width:32px;height:1px;background:var(--color-accent)"></div>
+            <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">Cybersecurity Engineer · Vancouver, BC</span>
         </div>
-    </div>
-    <div class="s-hero__scroll">
-        <a href="#about" class="s-hero__scroll-link smoothscroll">
-            <span class="scroll-arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(255,255,255,1);"><path d="M18.707 12.707L17.293 11.293 13 15.586 13 6 11 6 11 15.586 6.707 11.293 5.293 12.707 12 19.414z"/></svg>
-            </span>
-            <span class="scroll-text">Scroll Down</span>
-        </a>
-    </div>
-</section>
-
-<!-- about -->
-<section id="about" class="s-about target-section">
-    <div class="row">
-        <div class="column large-3 tab-12">
-            <img class="s-about__pic" src="images/avatars/user-06.jpg" alt="Archie Plaquia">
+        <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 20px;max-width:16ch">I build security systems, then try to break them.</h1>
+        <div style="font-size:17px;line-height:1.65;color:var(--color-neutral-300);max-width:58ch;margin:0 0 14px">
+            <p>Eight years in security, starting in the Philippines, then the UAE, and now Vancouver. Most of it on access control: who gets in, what they can reach, and how quickly you can shut it down.</p>
+            <p>Some of the newer labs run alerts through an AI model. It writes the summary. It doesn't decide how bad something is.</p>
+            <p>Write-ups include what broke and what I got wrong.</p>
         </div>
-        <div class="column large-9 tab-12 s-about__content">
-            <h3>About Me</h3>
-            <p>
-            Cybersecurity Engineer with over 8 years of international experience across Canada, UAE, and the Philippines. 
-            Specializing in endpoint protection, threat detection, SOAR automation, and incident response. 
-            CompTIA CySA+ and Security+ certified. Experienced in SOC optimization, system hardening (CIS Benchmarks), and MITRE ATT&CK-aligned security frameworks.
-            </p>
 
-            <hr>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px">
+            <a href="#writeups" class="btn btn-primary">View write-ups</a>
+            <a href="#experience" class="btn btn-secondary">See experience</a>
+        </div>
+        <div style="display:flex;gap:12px">
+            <a href="https://linkedin.com/in/kcplaquia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="btn btn-icon btn-secondary">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+            </a>
+            <a href="https://github.com/archietech23" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="btn btn-icon btn-secondary">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+        </div>
+    </section>
 
-            <div class="row s-about__content-bottom">
-                <div class="column w-1000-stack">
-                    <h3>Certifications</h3>
+    <div style="height:1px;background:linear-gradient(to right, transparent, var(--color-divider) 48px, var(--color-divider) calc(100% - 48px), transparent);max-width:1200px;margin:0 auto"></div>
 
-<!--
-  Certifications
-  - Each badge image is stored locally for fast loading
-  - Each badge links to a Credly public verification URL (source of truth)
--->
-                    <div class="certifications-row">
-                        <a href="https://www.credly.com/badges/e0b3a4c7-d1fd-445b-a23d-78284caffd17/public_url" class="link" target="_blank">
-                            <img class="cert-thumbnail" src="images/icons/cysa-plus.png" alt="CompTIA CySA+">
-                        </a>
-                        <a href="https://www.credly.com/badges/3a6d54a7-849d-4ecf-854d-cc7d44541146/public_url" class="link" target="_blank">
-                            <img class="cert-thumbnail" src="images/icons/sec.png" alt="CompTIA Security+">
-                        </a>
-                        <a href="https://www.credly.com/badges/1aec6900-f92f-4ad3-b9b8-762a14b9c615/public_url" class="link" target="_blank">
-                            <img class="cert-thumbnail" src="images/icons/sec-analytics.png" alt="CompTIA Security Analytics Professional">
-                        </a>
-                        <a href="https://www.credly.com/badges/e7ddddf2-b298-47ef-a7ce-41f32e7e4366/public_url" class="link" target="_blank">
-                            <img class="cert-thumbnail" src="images/icons/az-f.png" alt="Microsoft Certified: Azure Fundamentals">
-                        </a>
-                        <a href="https://www.credly.com/badges/79eea369-19c8-4fe8-82ec-0f960f1fa1c9/public_url" class="link" target="_blank">
-                            <img class="cert-thumbnail" src="images/icons/az-scf.png" alt="Microsoft Certified: Security, Compliance, and Identity Fundamentals">
-                        </a>
-                    </div>
+    <!-- ABOUT -->
+    <section id="about" style="max-width:1200px;margin:0 auto;padding:72px clamp(20px,5vw,64px)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px">
+            <div style="width:32px;height:1px;background:var(--color-accent)"></div>
+            <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">About</span>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(160px,220px) 1fr;gap:clamp(24px,5vw,56px);align-items:start">
+            <img src="images/avatars/user-06.jpg" alt="Kristopher Archie Plaquia" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md)">
+            <div>
+                <p style="font-size:16px;line-height:1.7;color:var(--color-text);max-width:64ch;margin:0 0 16px">Security engineer in British Columbia, eight years in — starting in the Philippines, then the UAE, now Canada. My work is mostly about access: who can get in, what they can reach once inside, and how fast that gets shut down when an account is compromised.</p>
+                <p style="font-size:16px;line-height:1.7;color:var(--color-text);max-width:64ch;margin:0 0 16px">This site is my lab notebook. A homelab mirrors how a real company is built; I break things in it and write down what happened, failures included.</p>
+                <p style="font-size:16px;line-height:1.7;color:var(--color-text);max-width:64ch;margin:0 0 16px">Some newer projects use AI to summarize alerts — never to decide what's urgent. That stays in code I can check line by line.</p>
+                <p style="font-size:16px;line-height:1.7;color:var(--color-text);max-width:64ch;margin:0 0 24px">Certifications and technical detail are further down. If you'd rather skip the summary, the write-ups are the real thing.</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px">
+                    <div><div style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:4px">Location</div><div style="font-size:14px">Vancouver, BC</div></div>
+                    <div><div style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:4px">Focus</div><div style="font-size:14px">SOC automation, IAM/PAM</div></div>
+                    <div><div style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:4px">Certifications</div><div style="font-size:14px">5 active</div></div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- resume -->
-<section id="resume" class="s-resume target-section">
-  <div class="row s-resume__section">
-    <div class="column large-3 tab-12">
-      <h3 class="section-header-allcaps">Experience</h3>
-    </div>
-
-    <div class="column large-9 tab-12">
-      <!-- Note -->
-      <p class="experience-note">
-        Security roles are summarized with NDA-safe language. Full employer details and deeper scope available upon request.
-      </p>
-
-      <!-- Canada (Current) -->
-      <div class="resume-block">
-        <div class="resume-block__header">
-          <h4 class="h3">Confidential Organization (Canada)</h4>
-          <p class="resume-block__header-meta">
-            <span>Information Security Analyst</span>
-            <span class="resume-block__header-date">Nov 2023 – Present</span>
-          </p>
+    <!-- SKILLS -->
+    <section id="skills" style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,5vw,64px) 72px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px">
+            <div style="width:32px;height:1px;background:var(--color-accent)"></div>
+            <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">Skills and Tools</span>
         </div>
-        <ul class="resume-bullets">
-          <li>Automated security operations tasks (access reviews, endpoint compliance checks, agent deployments) to reduce manual effort and improve consistency.</li>
-          <li>Supported audit readiness by maintaining ISO 27001/CIS-aligned documentation, evidence workflows, and change tracking.</li>
-          <li>Delivered privileged access management capability from proof-of-concept to production, including workflow design and virtual infrastructure setup.</li>
-          <li>Assisted incident investigations through structured log review and SQL-based data extraction for timelines and reporting.</li>
-        </ul>
-      </div>
-
-      <!-- Canada -->
-      <div class="resume-block">
-        <div class="resume-block__header">
-          <h4 class="h3">D3 Security</h4>
-          <p class="resume-block__header-meta">
-            <span>Cybersecurity Engineer</span>
-            <span class="resume-block__header-date">Jul 2023 – Nov 2023</span>
-          </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+            <div class="card elev-sm">
+                <div class="card-title">Detection and Response</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+                    <span class="tag tag-outline" style="white-space:nowrap;flex:none">SIEM</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">EDR</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">SOAR</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">MITRE ATT&amp;CK</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Incident Response</span>
+                </div>
+            </div>
+            <div class="card elev-sm">
+                <div class="card-title">Identity and Access</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+                    <span class="tag tag-outline" style="white-space:nowrap;flex:none">IAM</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">PAM</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Access Reviews</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Azure AD</span>
+                </div>
+            </div>
+            <div class="card elev-sm">
+                <div class="card-title">Cloud and Infrastructure</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+                    <span class="tag tag-outline" style="white-space:nowrap;flex:none">Azure</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Linux</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Proxmox</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Docker</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">VPN / Networking</span>
+                </div>
+            </div>
+            <div class="card elev-sm">
+                <div class="card-title">Automation and Scripting</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+                    <span class="tag tag-outline" style="white-space:nowrap;flex:none">Python</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">PowerShell</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">SQL</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">API Integrations</span>
+                </div>
+            </div>
+            <div class="card elev-sm">
+                <div class="card-title">Governance and Hardening</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+                    <span class="tag tag-outline" style="white-space:nowrap;flex:none">ISO 27001</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">CIS Benchmarks</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Vulnerability Mgmt</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">DLP</span>
+                </div>
+            </div>
         </div>
-        <ul class="resume-bullets">
-          <li>Designed and optimized SOAR playbooks to automate triage, enrichment, containment, and response actions.</li>
-          <li>Integrated SIEM/EDR and third-party security tools using API-driven workflows to standardize response steps.</li>
-          <li>Built cloud automation workflows to support cross-platform response and notification patterns.</li>
-          <li>Developed Python utilities for alert enrichment and correlation to improve investigation efficiency.</li>
-          <li>Aligned detection/response logic with MITRE ATT&CK and security control frameworks.</li>
-        </ul>
-      </div>
+    </section>
 
-      <!-- Canada -->
-      <div class="resume-block">
-        <div class="resume-block__header">
-          <h4 class="h3">Pacific Vector Technologies</h4>
-          <p class="resume-block__header-meta">
-            <span>Cyber Security Specialist</span>
-            <span class="resume-block__header-date">Jan 2023 – Jun 2023</span>
-          </p>
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,5vw,64px) 72px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px">
+            <div style="width:32px;height:1px;background:var(--color-accent)"></div>
+            <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">Certifications</span>
         </div>
-        <ul class="resume-bullets">
-          <li>Performed malware analysis in controlled lab environments using static and dynamic techniques for triage and reporting.</li>
-          <li>Developed and maintained incident response workflows and investigation checklists for consistent handling.</li>
-          <li>Triaged and investigated alerts from SIEM and endpoint security platforms; documented findings and outcomes.</li>
-          <li>Applied CIS-based hardening standards to endpoints and servers and validated remediation actions.</li>
-        </ul>
-      </div>
-
-      <!-- International (NDA-safe) -->
-      <div class="resume-block">
-        <div class="resume-block__header">
-          <h4 class="h3">International Security Experience (UAE & Philippines)</h4>
-          <p class="resume-block__header-meta">
-            <span>Security Engineering / SOC / IT Security</span>
-            <span class="resume-block__header-date">2018 – 2022</span>
-          </p>
-        </div>
-        <ul class="resume-bullets">
-        <li>Led enterprise Data Loss Prevention (DLP) implementation using Boldon James Classifier, including policy design, endpoint rollout, and user classification workflows.</li>
-        <li>Designed and supported multi-site secure connectivity, implementing site-to-site and remote access VPN configurations for distributed environments.</li>
-        <li>Executed firewall migration initiatives, transitioning production environments from Palo Alto Networks to FortiGate with minimal service disruption.</li>
-        <li>Integrated Managed Detection and Response (MDR) access for SOC operations, enabling secure third-party monitoring and incident escalation.</li>
-        <li>Implemented and supported enterprise email security controls, including DKIM, SPF, and DMARC configuration to reduce spoofing and phishing risk.</li>
-        <li>Supported security operations and incident response across enterprise environments, including alert triage, investigations, and remediation coordination.</li>
-        <li>Drove vulnerability remediation and system hardening initiatives through patch management, secure configuration baselines, and validation testing.</li>
-        <li>Built and maintained security documentation, runbooks, and audit evidence to support operational resilience and compliance requirements.</li>
-        </ul>
-      </div>
-
-      <p class="experience-note">
-        References and detailed project scope can be shared during the interview process.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!--
-  Projects
-  Purpose:
-  - Give recruiters a fast overview of hands-on capability
-  - Drive traffic to GitHub for deeper technical walkthroughs
--->
-<section id="projects" class="s-projects target-section">
-  <div class="row">
-    <div class="column large-3 tab-12">
-      <h3 class="section-header-allcaps">Projects</h3>
-
-      <p class="experience-note">
-  Selected projects are documented as they are completed.
-  Additional labs and homelab write-ups are currently in progress.
-      </p>
-
-    </div>
-
-    <div class="column large-9 tab-12">
-
-      <!-- Security & Professional Labs -->
-      <div class="resume-block">
-        
-        <h4 class="h3">Security & Professional Labs</h4>
-
-        <ul class="project-list">
-          <li>
-            <strong>Malware Analysis Lab — Silly Putty (PMAT)</strong><br>
-            Basic static malware analysis of a trojanized PuTTY binary performed in an isolated virtual lab environment.<br>
-            <span class="project-tech">PEStudio, FLOSS, REMnux, Static Analysis</span><br>
-            <a href="https://github.com/archietech23/archietech-portfolio/tree/main/projects/security-labs/malware-analysis-silly-putty"
-              target="_blank" rel="noopener noreferrer">
-              View documented lab on GitHub →
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px">
+            <a href="https://www.credly.com/badges/e0b3a4c7-d1fd-445b-a23d-78284caffd17/public_url" target="_blank" rel="noopener noreferrer" class="card elev-sm" style="align-items:center;text-align:center">
+                <img src="images/icons/cysa-plus.png" alt="CompTIA CySA+" style="width:76px;height:76px;object-fit:contain;margin:0 auto">
+                <div style="font-size:13px;color:var(--color-neutral-300)">CompTIA CySA+</div>
             </a>
-          </li>
-          <li>
-            <strong>SOC Mini Lab (Detection & IR)</strong><br>
-            Simulated SOC environment covering alert triage, log analysis, and incident response workflows.<br>
-            <span class="project-tech">SIEM, MITRE ATT&CK, Windows Logs</span><br>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Homelab & Personal Projects -->
-      <div class="resume-block">
-        <h4 class="h3">Homelab & Personal Projects</h4>
-
-        <ul class="project-list">
-          <li>
-            <strong>Self-Hosted Media Server</strong><br>
-            Media automation stack deployed on a Proxmox-hosted mini PC for learning infrastructure management.<br>
-            <span class="project-tech">Proxmox, Docker, Plex</span><br>
-          </li>
-
-          <li>
-            <strong>WireGuard VPN (Always Free Cloud)</strong><br>
-            Secure remote access VPN deployed on Oracle Always Free tier for cost-efficient learning.<br>
-            <span class="project-tech">WireGuard, Linux, Cloud Networking</span><br>
-
-          </li>
-
-          <li>
-            <strong>Pi-hole DNS Filtering</strong><br>
-            Network-wide DNS filtering and monitoring using Raspberry Pi for visibility and control.<br>
-            <span class="project-tech">Raspberry Pi, DNS, Linux</span><br>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- footer -->
-<footer class="s-footer">
-    <div class="row">
-        <div class="column large-7 medium-6 w-1000-stack ss-copyright">
-            <span>© Copyright Kristopher Archie Plaquia 2026</span>
-            <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+            <a href="https://www.credly.com/badges/3a6d54a7-849d-4ecf-854d-cc7d44541146/public_url" target="_blank" rel="noopener noreferrer" class="card elev-sm" style="align-items:center;text-align:center">
+                <img src="images/icons/sec.png" alt="CompTIA Security+" style="width:76px;height:76px;object-fit:contain;margin:0 auto">
+                <div style="font-size:13px;color:var(--color-neutral-300)">CompTIA Security+</div>
+            </a>
+            <a href="https://www.credly.com/badges/1aec6900-f92f-4ad3-b9b8-762a14b9c615/public_url" target="_blank" rel="noopener noreferrer" class="card elev-sm" style="align-items:center;text-align:center">
+                <img src="images/icons/sec-analytics.png" alt="CompTIA Security Analytics Professional" style="width:76px;height:76px;object-fit:contain;margin:0 auto">
+                <div style="font-size:13px;color:var(--color-neutral-300)">Security Analytics Professional</div>
+            </a>
+            <a href="https://www.credly.com/badges/e7ddddf2-b298-47ef-a7ce-41f32e7e4366/public_url" target="_blank" rel="noopener noreferrer" class="card elev-sm" style="align-items:center;text-align:center">
+                <img src="images/icons/az-f.png" alt="Microsoft Certified: Azure Fundamentals" style="width:76px;height:76px;object-fit:contain;margin:0 auto">
+                <div style="font-size:13px;color:var(--color-neutral-300)">Azure Fundamentals</div>
+            </a>
+            <a href="https://www.credly.com/badges/79eea369-19c8-4fe8-82ec-0f960f1fa1c9/public_url" target="_blank" rel="noopener noreferrer" class="card elev-sm" style="align-items:center;text-align:center">
+                <img src="images/icons/az-scf.png" alt="Security, Compliance, and Identity Fundamentals" style="width:76px;height:76px;object-fit:contain;margin:0 auto">
+                <div style="font-size:13px;color:var(--color-neutral-300)">Security, Compliance and Identity</div>
+            </a>
         </div>
-    </div>
-    <div class="ss-go-top">
-        <a class="smoothscroll" title="Back to Top" href="#top">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z"/></svg>
-         </a>
-    </div>
-</footer>
+    </section>
 
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.body.classList.remove('ss-preload'); // show all content
-});
-</script>
+    <!-- EXPERIENCE / TIMELINE -->
+    <section id="experience" style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,5vw,64px) 72px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <div style="width:32px;height:1px;background:var(--color-accent)"></div>
+            <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">Experience</span>
+        </div>
+        <p style="font-size:13px;color:var(--color-neutral-500);max-width:64ch;margin:0 0 32px">Security roles are summarized with NDA-safe language. Full employer details and deeper scope available on request.</p>
+
+        <div style="display:grid;grid-template-columns:14px 1fr;column-gap:24px">
+            <!-- Row 1 -->
+            <div style="display:flex;flex-direction:column;align-items:center">
+                <div style="width:10px;height:10px;border-radius:50%;background:var(--color-accent);flex:none"></div>
+                <div style="width:1px;flex:1;background:var(--color-divider)"></div>
+            </div>
+            <div style="padding-bottom:36px">
+                <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px">
+                    <h4 style="font-size:19px;margin:0">Confidential Organization (Canada)</h4>
+                    <span class="tag tag-accent" style="white-space:nowrap;flex:none">Current</span>
+                </div>
+                <div style="font-size:14px;color:var(--color-neutral-300);margin-bottom:12px">Information Security Analyst · Nov 2023 – Present</div>
+                <ul style="margin:0;padding-left:18px;font-size:14.5px;line-height:1.7;color:var(--color-neutral-200)">
+                    <li>Automated security operations tasks (access reviews, endpoint compliance checks, agent deployments) to reduce manual effort and improve consistency.</li>
+                    <li>Supported audit readiness by maintaining ISO 27001/CIS-aligned documentation, evidence workflows, and change tracking.</li>
+                    <li>Delivered privileged access management capability from proof-of-concept to production, including workflow design and virtual infrastructure setup.</li>
+                    <li>Assisted incident investigations through structured log review and SQL-based data extraction for timelines and reporting.</li>
+                </ul>
+            </div>
+
+            <!-- Row 2 -->
+            <div style="display:flex;flex-direction:column;align-items:center">
+                <div style="width:10px;height:10px;border-radius:50%;background:var(--color-neutral-500);flex:none"></div>
+                <div style="width:1px;flex:1;background:var(--color-divider)"></div>
+            </div>
+            <div style="padding-bottom:36px">
+                <h4 style="font-size:19px;margin:0 0 4px">D3 Security</h4>
+                <div style="font-size:14px;color:var(--color-neutral-300);margin-bottom:12px">Cybersecurity Engineer · Jul 2023 – Nov 2023</div>
+                <ul style="margin:0;padding-left:18px;font-size:14.5px;line-height:1.7;color:var(--color-neutral-200)">
+                    <li>Designed and optimized SOAR playbooks to automate triage, enrichment, containment, and response actions.</li>
+                    <li>Integrated SIEM/EDR and third-party security tools using API-driven workflows to standardize response steps.</li>
+                    <li>Built cloud automation workflows to support cross-platform response and notification patterns.</li>
+                    <li>Developed Python utilities for alert enrichment and correlation to improve investigation efficiency.</li>
+                    <li>Aligned detection/response logic with MITRE ATT&amp;CK and security control frameworks.</li>
+                </ul>
+            </div>
+
+            <!-- Row 3 -->
+            <div style="display:flex;flex-direction:column;align-items:center">
+                <div style="width:10px;height:10px;border-radius:50%;background:var(--color-neutral-500);flex:none"></div>
+                <div style="width:1px;flex:1;background:var(--color-divider)"></div>
+            </div>
+            <div style="padding-bottom:36px">
+                <h4 style="font-size:19px;margin:0 0 4px">Pacific Vector Technologies</h4>
+                <div style="font-size:14px;color:var(--color-neutral-300);margin-bottom:12px">Cyber Security Specialist · Jan 2023 – Jun 2023</div>
+                <ul style="margin:0;padding-left:18px;font-size:14.5px;line-height:1.7;color:var(--color-neutral-200)">
+                    <li>Performed malware analysis in controlled lab environments using static and dynamic techniques for triage and reporting.</li>
+                    <li>Developed and maintained incident response workflows and investigation checklists for consistent handling.</li>
+                    <li>Triaged and investigated alerts from SIEM and endpoint security platforms; documented findings and outcomes.</li>
+                    <li>Applied CIS-based hardening standards to endpoints and servers and validated remediation actions.</li>
+                </ul>
+            </div>
+
+            <!-- Row 4 -->
+            <div style="display:flex;flex-direction:column;align-items:center">
+                <div style="width:10px;height:10px;border-radius:50%;background:var(--color-neutral-500);flex:none"></div>
+            </div>
+            <div>
+                <h4 style="font-size:19px;margin:0 0 4px">International Security Experience (UAE and Philippines)</h4>
+                <div style="font-size:14px;color:var(--color-neutral-300);margin-bottom:12px">Security Engineering / SOC / IT Security · 2018 – 2022</div>
+                <ul style="margin:0;padding-left:18px;font-size:14.5px;line-height:1.7;color:var(--color-neutral-200)">
+                    <li>Led enterprise Data Loss Prevention (DLP) implementation using Boldon James Classifier, including policy design, endpoint rollout, and user classification workflows.</li>
+                    <li>Designed and supported multi-site secure connectivity, implementing site-to-site and remote access VPN configurations for distributed environments.</li>
+                    <li>Executed firewall migration initiatives, transitioning production environments from Palo Alto Networks to FortiGate with minimal service disruption.</li>
+                    <li>Integrated Managed Detection and Response (MDR) access for SOC operations, enabling secure third-party monitoring and incident escalation.</li>
+                    <li>Implemented and supported enterprise email security controls, including DKIM, SPF, and DMARC configuration to reduce spoofing and phishing risk.</li>
+                    <li>Supported security operations and incident response across enterprise environments, including alert triage, investigations, and remediation coordination.</li>
+                    <li>Drove vulnerability remediation and system hardening initiatives through patch management, secure configuration baselines, and validation testing.</li>
+                    <li>Built and maintained security documentation, runbooks, and audit evidence to support operational resilience and compliance requirements.</li>
+                </ul>
+            </div>
+        </div>
+        <p style="font-size:13px;color:var(--color-neutral-500);margin-top:24px">References and detailed project scope can be shared during the interview process.</p>
+    </section>
+
+    <!-- WRITE-UPS (featured) -->
+    <section id="writeups" style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,5vw,64px) 72px">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+                <div style="width:32px;height:1px;background:var(--color-accent)"></div>
+                <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">Write-ups and Labs</span>
+            </div>
+            <a href="https://github.com/archietech23/archietech-portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View all →</a>
+        </div>
+        <p style="font-size:14.5px;color:var(--color-neutral-300);max-width:64ch;margin:0 0 28px">Full breakdowns of hands-on investigations, linking out to GitHub for the raw notes and files.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+            <a href="https://github.com/archietech23/archietech-portfolio/tree/main/projects/security-labs/malware-analysis-silly-putty" target="_blank" rel="noopener noreferrer" class="card elev-md" style="text-decoration:none">
+                <div style="display:flex;gap:8px;margin-bottom:4px">
+                    <span class="tag tag-accent" style="white-space:nowrap;flex:none">Malware Analysis</span>
+                    <span class="tag tag-neutral" style="white-space:nowrap;flex:none">PMAT</span>
+                </div>
+                <div class="card-title">Trojanized PuTTY — Silly Putty</div>
+                <p class="card-body">Static analysis of a trojanized PuTTY binary: malicious domain, C2 port, and a base64/gzip PowerShell loader — no execution, isolated VM.</p>
+                <div class="card-meta">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    Read the full write-up
+                </div>
+            </a>
+            <div class="card elev-sm" style="opacity:0.7">
+                <div style="display:flex;gap:8px;margin-bottom:4px">
+                    <span class="tag tag-outline" style="white-space:nowrap;flex:none">SOC</span>
+                    <span class="tag tag-outline" style="white-space:nowrap;flex:none">Incident Response</span>
+                </div>
+                <div class="card-title">SOC Mini Lab (Detection and IR)</div>
+                <p class="card-body">Simulated SOC environment covering alert triage, log analysis, and incident response workflows across SIEM and Windows logs.</p>
+                <div class="card-meta">In progress</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,5vw,64px) 72px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <div style="width:32px;height:1px;background:var(--color-accent)"></div>
+            <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">Homelab and Personal Projects</span>
+        </div>
+        <p style="font-size:14.5px;color:var(--color-neutral-300);max-width:64ch;margin:0 0 28px">Where I test the tools I use professionally, on my own infrastructure.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+            <div class="card elev-sm">
+                <div class="card-title">Self-Hosted Media Server</div>
+                <p class="card-body">Media automation stack deployed on a Proxmox-hosted mini PC for learning infrastructure management.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px"><span class="tag tag-outline" style="white-space:nowrap;flex:none">Proxmox</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Docker</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Plex</span></div>
+            </div>
+            <div class="card elev-sm">
+                <div class="card-title">WireGuard VPN (Always Free Cloud)</div>
+                <p class="card-body">Secure remote access VPN deployed on Oracle Always Free tier for cost-efficient learning.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px"><span class="tag tag-outline" style="white-space:nowrap;flex:none">WireGuard</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Linux</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Cloud Networking</span></div>
+            </div>
+            <div class="card elev-sm">
+                <div class="card-title">Pi-hole DNS Filtering</div>
+                <p class="card-body">Network-wide DNS filtering and monitoring using Raspberry Pi for visibility and control.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px"><span class="tag tag-outline" style="white-space:nowrap;flex:none">Raspberry Pi</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">DNS</span><span class="tag tag-outline" style="white-space:nowrap;flex:none">Linux</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <section id="contact" style="background:var(--color-section);background-image:radial-gradient(900px 420px at 85% -40%, color-mix(in srgb, var(--color-section-glow) 70%, transparent), transparent 64%)">
+        <div style="max-width:1200px;margin:0 auto;padding:72px clamp(20px,5vw,64px)">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+                <div style="width:32px;height:1px;background:var(--color-accent)"></div>
+                <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">Contact</span>
+            </div>
+            <h3 style="font-size:clamp(24px,3vw,32px);margin:0 0 12px;max-width:20ch">Open to cybersecurity roles in detection, automation, and identity.</h3>
+            <p style="font-size:15px;color:var(--color-neutral-300);max-width:56ch;margin:0 0 24px">Reach out directly, or find the write-ups and full history above.</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap">
+                <a href="https://linkedin.com/in/kcplaquia" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/archietech23" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="max-width:1200px;margin:0 auto;padding:24px clamp(20px,5vw,64px);font-size:12.5px;color:var(--color-neutral-600);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <span>© 2026 Kristopher Archie Plaquia</span>
+        <span>Vancouver, BC</span>
+    </footer>
+</div>
 </body>
 </html>
